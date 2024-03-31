@@ -1,0 +1,6 @@
+# Ignore compiled CSS files
+*.css
+
+# Ignore the Bootstrap distribution directory (if applicable)
+/scss/bootstrap
+

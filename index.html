@@ -21,30 +21,87 @@
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+	<style>
+		body.dark {
+      background-color: #3d1414; /* Example dark background color */
+    }
+	#darkModeToggle {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background-color: #333;
+    position: relative;
+    transition: all 0.5s ease-in;
+    cursor: pointer;
+    z-index: 1;
+    margin-left: auto; /* Align to the right */
+    margin-right: 0; /* Remove margin on the right */
+}
+
+#darkModeToggle::before {
+    content: "";
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #EEE;
+    position: absolute;
+    top: 50%;
+    left: 3px;
+    transform: translateY(-50%);
+    transition: all 0.5s ease-in;
+}
+
+#darkModeToggle:checked {
+    background-color: #EEE;
+}
+
+#darkModeToggle:checked::before {
+    background: #333;
+    left: 32px;
+}
+.one-third.js-fullheight.order-md-last.img {
+    touch-action: pan-y;
+}
+@media (max-width: 767px) {
+  .slider-item {
+    background-color: transparent !important;
+  }
+}
+	</style>
   </head>
   <body data-spy="scroll" style="scroll-behavior: smooth;" data-target=".site-navbar-target" data-offset="300">
 	  
 	  
-    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Matthew</a>
-	      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="oi oi-menu"></span> Menu
-	      </button>
-
-	      <div class="collapse navbar-collapse" id="ftco-nav">
-	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
-	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-	          <li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
-	        </ul>
-	      </div>
-	    </div>
-	  </nav>
+	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">Matthew</a>
+			<button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="oi oi-menu"></span> Menu
+			</button>
+	
+			<div class="collapse navbar-collapse" id="ftco-nav">
+				<ul class="navbar-nav nav ml-auto">
+					<li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+					<li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+					<li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
+					<li class="nav-item"><a href="#services-section" class="nav-link"><span>Services</span></a></li>
+					<li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
+					<li class="nav-item"><a href="#projects-section" class="nav-link"><span>Projects</span></a></li>
+					<li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+				</ul>
+			</div>
+			<div class="form-check form-switch ml-auto d-flex align-items-center justify-content-end text-center" style="gap: 10px;">
+				<input class="form-check-input" type="checkbox" id="darkModeToggle">
+				<label for="darkModeToggle" class="form-check-label">Theme</label>
+			</div>
+			
+			
+		</div>
+	</nav>
+	
 	  <section id="home-section" class="hero">
 		  <div class="home-slider  owl-carousel">
 	      <div class="slider-item ">
@@ -146,7 +203,7 @@
     				</div>
     				<div class="resume-wrap ftco-animate">
     					<span class="date">2016-2020</span>
-    					<h2>Completed the elementary phase</h2>
+    					<h2>Completed the Secondary Phase</h2>
     					<span class="position">Puerto Galera National High School</span>
     					<p class="mt-4">Successfully completed my secondary education at a charming local school nestled in the heart of our province, where I laid the foundation for my academic journey.</p>
     				</div>
@@ -623,6 +680,21 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-    
+    <script>
+		if (localStorage.getItem('darkMode') === 'enabled') {
+      document.body.classList.add('dark');
+    }
+
+    // Toggle dark mode
+    document.getElementById('darkModeToggle').addEventListener('change', function() {
+      if (this.checked) {
+        document.body.classList.add('dark');
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        document.body.classList.remove('dark');
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
+	</script>
   </body>
 </html>

@@ -70,6 +70,22 @@
     background-color: transparent !important;
   }
 }
+@media (max-width: 440px) {
+	#labelToggle {
+	display: none;
+}
+}
+@media (max-width: 380px) {
+  .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+  }
+#labelToggle {
+	display: none;
+}
+.darkModeToggle {background-color: red;
+}
+}
 	</style>
   </head>
   <body data-spy="scroll" style="scroll-behavior: smooth;" data-target=".site-navbar-target" data-offset="300">
@@ -95,7 +111,7 @@
 			</div>
 			<div class="form-check form-switch ml-auto d-flex align-items-center justify-content-end text-center" style="gap: 10px;">
 				<input class="form-check-input" type="checkbox" id="darkModeToggle">
-				<label for="darkModeToggle" class="form-check-label">Theme</label>
+				<label id="labelToggle" for="darkModeToggle" class="form-check-label">Theme</label>
 			</div>
 			
 			
@@ -108,7 +124,7 @@
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png);">
+				<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_1.png); overflow-y: auto; height: 100vh;">
 	          		<div class="overlay"></div>
 	          	</div>
 		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
@@ -128,7 +144,7 @@
 	      	<div class="overlay"></div>
 	        <div class="container">
 	          <div class="row d-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_2.png);">
+				<div class="one-third js-fullheight order-md-last img" style="background-image:url(images/bg_2.png); overflow-y: auto; height: 100vh;">
 	          		<div class="overlay"></div>
 	          	</div>
 		          <div class="one-forth d-flex align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
